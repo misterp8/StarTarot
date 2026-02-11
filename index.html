@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>星光塔羅 Star Tarot</title>
+
+    <meta name="theme-color" content="#05070B">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+TC:wght@300;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://esm.sh/three@0.160.0",
+                "three/addons/": "https://esm.sh/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="landscape-lock">
+        <div class="lock-content">
+            <div class="lock-icon">⟳</div>
+            <p>請旋轉裝置以進入星光塔羅</p>
+            <small>Please Rotate Your Device</small>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+
+        <div id="screen-intro" class="screen active">
+            <div class="intro-content">
+                <h1 class="game-title">Star Tarot</h1>
+
+                <div id="artifact-wrapper">
+                    <div id="btn-start-artifact" class="artifact-core">
+                        <div class="rune-ring"></div>
+                        <div class="rune-ring-inner"></div>
+                        <div class="core-light"></div>
+                        <div class="core-label">啟動星光</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-pick" class="screen" style="pointer-events: none;">
+            <div id="controls-hint" class="hud-text"></div>
+
+            <div id="pick-instruction">
+                <h2 class="hud-title">專注你的問題，放下心中雜念</h2>
+
+                <div id="skin-switcher-container">
+                    <button id="btn-skin-switch" class="btn-rune-sub">星紋幻化</button>
+                    <button id="btn-audio-toggle">星空迴響</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-result" class="screen">
+            <div id="result-overlay" class="holo-panel">
+                <h2 class="holo-title">星之指引</h2>
+
+                <div class="topic-selector-container">
+                    <div class="selector-arrow left" id="topic-prev">◀</div>
+                    <div class="selector-display" id="topic-display">全面運勢分析</div>
+                    <div class="selector-arrow right" id="topic-next">▶</div>
+                </div>
+
+                <div class="result-cards" id="result-cards-container">
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-rune" id="btn-interpret">牌意解讀</button>
+                    <button class="btn-rune" id="btn-ai-prompt">生成 AI 咒語</button>
+                    <button class="btn-rune" id="btn-reset">重啟星盤</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="prompt-modal" class="modal">
+            <div class="modal-content holo-modal">
+                <h3 class="holo-subtitle">星界傳訊</h3>
+                <p class="modal-desc">咒語已生成，請複製並傳遞給Gemini或ChatGPT</p>
+                <textarea id="prompt-output" readonly class="star-textarea"></textarea>
+                <div class="modal-buttons equal-buttons">
+                    <button id="btn-copy-modal" class="btn-rune">複製咒語</button>
+                    <button id="btn-close-modal" class="btn-rune-sub">關閉傳訊</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="interpret-modal" class="modal">
+            <div class="modal-content holo-modal wide-modal">
+                <h3 class="holo-subtitle">星痕解讀</h3>
+                <div id="interpret-content" class="interpret-scroll-area star-scroll">
+                </div>
+                <div class="modal-buttons">
+                    <button id="btn-close-interpret" class="btn-rune-sub">關閉星圖</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="toast" id="toast">咒語已複製</div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
