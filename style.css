@@ -95,8 +95,9 @@ body {
 
 .hud-text {
     color: var(--arcane);
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
+    margin-bottom: 5px
 }
 
 #artifact-wrapper {
@@ -301,7 +302,7 @@ body {
 
 #btn-skin-switch {
     padding: 4px 16px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border-width: 1px;
     letter-spacing: 1px;
     background: rgba(0, 0, 0, 0.1);
@@ -311,7 +312,7 @@ body {
 
 #btn-audio-toggle {
     padding: 4px 16px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border: 1px solid var(--arcane-dim);
     background: rgba(0, 0, 0, 0.1);
     color: var(--arcane);
@@ -726,10 +727,9 @@ body {
     }
 
     #controls-hint {
-        font-size: 0.70rem;
-        margin-bottom: 3px;
+        font-size: 0.90rem;
+        margin-bottom: 5px;
         transform: translateY(-1px);
-        opacity: 0.8;
     }
 
     .hud-title {

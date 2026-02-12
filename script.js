@@ -723,7 +723,7 @@ function switchScreen(id) {
 
     if (id === 'screen-pick') {
         document.getElementById('controls-hint').style.display = 'block';
-        document.getElementById('controls-hint').innerText = "滑動旋轉星盤 · 點擊選擇卡牌";
+        document.getElementById('controls-hint').innerText = "左右滑動旋轉星盤 · 點擊選擇卡牌";
 
         const skinSwitcher = document.getElementById('skin-switcher-container');
         if (skinSwitcher) skinSwitcher.style.display = 'block';
