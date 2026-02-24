@@ -410,7 +410,7 @@ const baseMatSide = new THREE.MeshStandardMaterial({ color: 0x000000, roughness:
 const baseMatFront = new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.5 });
 
 const raycaster = new THREE.Raycaster();
-raycaster.params.Points.threshold = 0.1; // 修正觸控誤判
+raycaster.params.Points.threshold = 0.1;
 
 const mouse = new THREE.Vector2();
 const deckGroup = new THREE.Group();
@@ -723,12 +723,18 @@ function switchScreen(id) {
 
     if (id === 'screen-pick') {
         document.getElementById('controls-hint').style.display = 'block';
-        document.getElementById('controls-hint').innerText = "左右滑動旋轉星盤 · 點擊選擇卡牌";
+        document.getElementById('controls-hint').innerText = "左右滑動旋轉星盤，點擊選擇卡牌";
 
         const skinSwitcher = document.getElementById('skin-switcher-container');
         if (skinSwitcher) skinSwitcher.style.display = 'block';
 
         controls.enabled = false;
+
+        const swipeHint = document.getElementById('mobile-swipe-hint');
+        if (swipeHint) {
+            swipeHint.style.display = '';
+            swipeHint.style.opacity = '';
+        }
     } else {
         document.getElementById('controls-hint').style.display = 'none';
 
@@ -976,6 +982,11 @@ window.addEventListener('touchmove', (e) => {
         if (STATE.isPicking && STATE.canPick) {
             rotationVelocity = deltaX * 0.001;
             deckGroup.rotation.y += rotationVelocity;
+
+            const swipeHint = document.getElementById('mobile-swipe-hint');
+            if (swipeHint && swipeHint.style.opacity !== '0') {
+                swipeHint.style.opacity = '0';
+            }
         }
 
         touchStartX = currentX;
@@ -1158,7 +1169,18 @@ function pickCard(mesh) {
 
     setTimeout(() => playSound('flip'), 100);
 
-    if (STATE.pickedCards.length === 3) { STATE.canPick = false; setTimeout(startRitual, 1000); }
+    if (STATE.pickedCards.length === 3) {
+        STATE.canPick = false;
+
+        // ▼ 選滿三張牌後，強制淡出並隱藏滑動提示
+        const swipeHint = document.getElementById('mobile-swipe-hint');
+        if (swipeHint) {
+            swipeHint.style.opacity = '0';
+            setTimeout(() => { swipeHint.style.display = 'none'; }, 500);
+        }
+
+        setTimeout(startRitual, 1000);
+    }
 }
 
 async function startRitual() {
@@ -1193,7 +1215,6 @@ async function startRitual() {
 
     new TWEEN.Tween(camera.position).to({ x: 0, y: camTargetY, z: camTargetZ }, 1500).start();
     new TWEEN.Tween(camera.rotation).to({ x: 0, y: 0, z: 0 }, 1500).start();
-
 
     const targetCardY = isMobileLandscape ? 0 : 0;
     const targetCardZ = isMobileLandscape ? 3.0 : 3.0;
@@ -1335,7 +1356,7 @@ document.getElementById('btn-ai-prompt').addEventListener('click', () => {
 - 所有結論必須由牌義推導，不可空泛。
 
 【牌陣結構】
-第一張牌：過去（或現況）ㄇ
+第一張牌：過去（或現況）
 第二張牌：現在（或核心問題）
 第三張牌：未來（或走向結果）
 
@@ -1349,11 +1370,11 @@ ${cards}
 
 二、逐張解讀（簡潔、明確）
 - 第一張牌（過去/現況）：
-  說明目前形成狀況的原因與基礎，直指問題本質。
+  說明目前形成狀況的原因與基礎，直指問題本質。
 - 第二張牌（現在/核心）：
-  說明當下真正卡住或發揮作用的關鍵因素。
+  說明當下真正卡住或發揮作用的關鍵因素。
 - 第三張牌（未來/結果）：
-  明確指出走向，不能模糊收尾。
+  明確指出走向，不能模糊收尾。
 
 三、關鍵提醒（務實建議）
 → 給 1–2 點可執行的提醒或行動方向，避免空泛心靈雞湯。

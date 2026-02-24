@@ -678,7 +678,6 @@ body {
         border-width: 4px;
     }
 
-
     .card-pos {
         font-size: 0.7rem;
         margin-bottom: 1px;
@@ -727,8 +726,9 @@ body {
     }
 
     #controls-hint {
-        font-size: 0.90rem;
+        font-size: 1.0rem;
         margin-bottom: 5px;
+        font-weight: bold;
         transform: translateY(-1px);
     }
 
@@ -881,5 +881,138 @@ body {
             0 0 15px var(--core-glow),
             0 0 25px var(--arcane);
         opacity: 1;
+    }
+}
+
+#mobile-swipe-hint {
+    display: none;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75vw;
+    max-width: 500px;
+    justify-content: space-between;
+    color: var(--core-glow);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 5;
+}
+
+@media (hover: none) and (pointer: coarse),
+screen and (max-height: 600px) and (orientation: landscape) {
+    #mobile-swipe-hint {
+        display: flex;
+        animation: fadeInHint 1s forwards 1.5s;
+    }
+}
+
+@keyframes fadeInHint {
+    to {
+        opacity: 0.8;
+    }
+}
+
+.hint-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.swipe-hand {
+    filter: drop-shadow(0 0 8px var(--core-glow));
+}
+
+.hand-left {
+    animation: swipe-out-left 2.5s infinite ease-out;
+}
+
+.hand-right {
+    animation: swipe-out-right 2.5s infinite ease-out;
+}
+
+.swipe-arrow {
+    font-size: 2.5rem;
+    color: var(--arcane);
+    font-weight: 300;
+    animation: pulse-arrow 2.5s infinite ease-in-out;
+}
+
+@keyframes swipe-out-left {
+    0% {
+        transform: translateX(15px);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+}
+
+@keyframes swipe-out-right {
+    0% {
+        transform: translateX(-15px);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-arrow {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        text-shadow: none;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--arcane);
+        transform: scale(1.1);
+    }
+}
+
+#controls-hint {
+    animation: pulse-text-sync 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-text-sync {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        text-shadow: none;
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--arcane);
     }
 }
