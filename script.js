@@ -753,13 +753,13 @@ document.getElementById('artifact-wrapper').addEventListener('click', function (
 });
 
 const topics = [
-    { key: 'general', label: '全面指引' },
-    { key: 'love', label: '感情關係' },
-    { key: 'career', label: '事業發展' },
-    { key: 'finance', label: '財務走向' },
-    { key: 'health', label: '身心平衡' },
+    { key: 'general', label: '全面分析' },
+    { key: 'love', label: '感情分析' },
+    { key: 'career', label: '事業分析' },
+    { key: 'finance', label: '財務分析' },
+    { key: 'health', label: '健康分析' },
     { key: 'decision', label: '抉擇指引' },
-    { key: 'daily', label: '今日星光' }
+    { key: 'daily', label: '今日運勢' }
 ];
 
 let currentTopicIndex = 6;
