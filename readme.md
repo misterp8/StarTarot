@@ -6,7 +6,7 @@
 
 > **Demo 連結**：[https://misterp8.github.io/StarTarot/]
 
-| <img src="./screenshot1.png" width="100%"> | <img src="./screenshot2.png" width="100%"> |
+| <img src="./screenshot1.jpg" width="100%"> | <img src="./screenshot2.jpg" width="100%"> |
 
 ## 專案特色
 
