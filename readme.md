@@ -70,4 +70,6 @@ python -m http.server 8000
 
 如果你喜歡星光塔羅，覺得準的話，歡迎請我喝杯咖啡！ ☕
 
-<a href="[https://buymeacoffee.com/mister.p](https://buymeacoffee.com/mister.p)" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 181px !important;" ></a>
+<a href="https://buymeacoffee.com/mister.p" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+</a>
