@@ -66,10 +66,11 @@ python -m http.server 8000
 └── cards/              # 塔羅牌面圖檔與牌背材質
 ```
 
-## Support
+## 支持
 
 如果你喜歡星光塔羅，覺得準的話，歡迎請我喝杯咖啡！ ☕
 
 <a href="https://buymeacoffee.com/mister.p" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+
 </a>
