@@ -2,11 +2,11 @@
 
 一個基於 Three.js 開發的 3D 沉浸式網頁塔羅牌應用。透過 WebGL 渲染星空場景、自定義的環境音效引擎與流暢的 3D 卡牌互動，完美模擬現實中洗牌、抽牌，提供有別於傳統平面的線上占卜體驗。
 
-  <img src="./icon512.png" width="180" alt="BaeBae" style="border-radius: 20px; box-shadow: 0 0 20px rgba(255, 68, 0, 0.5);">
+<img src="./icon512.png" width="180">
 
 > **Demo 連結**：[https://misterp8.github.io/StarTarot/]
 
-| <img src="./screenshot1.jpg" width="100%"> | <img src="./screenshot2.jpg" width="100%"> |
+<img src="./screenshot1.jpg" width="50%"><img src="./screenshot2.jpg" width="50%">
 
 ## 專案特色
 
@@ -70,4 +70,4 @@ python -m http.server 8000
 
 如果你喜歡星光塔羅，覺得準的話，歡迎請我喝杯咖啡！ ☕
 
-<a href="[https://buymeacoffee.com/mister.p](https://buymeacoffee.com/mister.p)" target="_blank"><img src="[https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)" alt="Buy Me A Coffee" style="height: 50px !important;width: 181px !important;" ></a>
+<a href="[https://buymeacoffee.com/mister.p](https://buymeacoffee.com/mister.p)" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 181px !important;" ></a>
