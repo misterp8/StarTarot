@@ -11,6 +11,11 @@
     --font-main: 'Noto Sans TC', sans-serif;
 }
 
+html, body {
+    background-color: var(--bg-void);
+    overscroll-behavior: none;
+}
+
 * {
     margin: 0;
     padding: 0;

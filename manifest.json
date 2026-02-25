@@ -3,8 +3,8 @@
   "short_name": "星光塔羅",
   "start_url": "./index.html",
   "display": "fullscreen",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#05070B",
+  "theme_color": "#05070B",
   "orientation": "landscape",
   "icons": [
     {
